@@ -15,34 +15,46 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="What are you speaking now?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pc1-sG-zLG">
-                                <rect key="frame" x="42" y="163" width="345" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="What are you speaking now?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pc1-sG-zLG">
+                                <rect key="frame" x="70" y="225" width="344" height="26.5"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="This is a text view" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="amv-He-6Gl">
-                                <rect key="frame" x="87" y="220" width="240" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a10-2j-FRo">
+                                <rect key="frame" x="142" y="540" width="131" height="30"/>
+                                <state key="normal" title="Click here to speak"/>
+                            </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" text="This is a text view" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="amv-He-6Gl">
+                                <rect key="frame" x="87" y="314" width="240" height="143"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a10-2j-FRo">
-                                <rect key="frame" x="149" y="377" width="131" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Click here to speak"/>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="amv-He-6Gl" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="87" id="ApC-5R-0Gt"/>
+                            <constraint firstItem="Pc1-sG-zLG" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="CNT-FY-QkO"/>
+                            <constraint firstItem="Pc1-sG-zLG" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="35" id="Iaz-EQ-N3Y"/>
+                            <constraint firstItem="Pc1-sG-zLG" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="270" id="ObV-hd-oZi"/>
+                            <constraint firstItem="amv-He-6Gl" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="abI-dG-NCX"/>
+                            <constraint firstItem="Pc1-sG-zLG" firstAttribute="centerX" secondItem="amv-He-6Gl" secondAttribute="centerX" id="jch-rI-jBK"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="a10-2j-FRo" secondAttribute="bottom" constant="214" id="nsI-gP-E1l"/>
+                            <constraint firstItem="amv-He-6Gl" firstAttribute="top" secondItem="Pc1-sG-zLG" secondAttribute="bottom" constant="36" id="tC9-cU-u6U"/>
+                            <constraint firstItem="amv-He-6Gl" firstAttribute="centerX" secondItem="a10-2j-FRo" secondAttribute="centerX" id="z9X-Or-nVB"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="microphoneButton" destination="a10-2j-FRo" id="ZZF-KA-aS8"/>
+                        <outlet property="textView" destination="amv-He-6Gl" id="JRj-UP-Ctk"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="139" y="130"/>
+            <point key="canvasLocation" x="137.68115942028987" y="129.91071428571428"/>
         </scene>
     </scenes>
 </document>

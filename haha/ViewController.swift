@@ -15,10 +15,13 @@ class ViewController: UIViewController , SFSpeechRecognizerDelegate{
     private var recognitionRequest: SFSpeechAudioBufferRecognitionRequest?
     private var recognitionTask: SFSpeechRecognitionTask?
     private let audioEngine = AVAudioEngine()
-
+    
+    @IBOutlet weak var microphoneButton: UIButton!
     
     @IBOutlet weak var textView: UITextView!
-    @IBOutlet weak var microphoneButton: UIButton!
+    
+//    @IBOutlet weak var textView: UITextView!
+//    @IBOutlet weak var microphoneButton: UIButton!
     
     override func viewDidLoad() {
         // Do any additional setup after loading the view.
@@ -49,7 +52,7 @@ class ViewController: UIViewController , SFSpeechRecognizerDelegate{
                 isButtonEnabled = false
                 print("Speech recognition not yet authorized")
             @unknown default:
-                <#fatalError()#>
+                print("something doesn't know")
             }
             
             OperationQueue.main.addOperation() {
@@ -82,10 +85,10 @@ class ViewController: UIViewController , SFSpeechRecognizerDelegate{
 //        }
         let inputNode = audioEngine.inputNode //skeptical about how to fix this
         
+        recognitionRequest = SFSpeechAudioBufferRecognitionRequest()
         guard let recognitionRequest = recognitionRequest else {
             fatalError("Unable to create an SFSpeechAudioBufferRecognitionRequest object")
         }
-        
         recognitionRequest.shouldReportPartialResults = true
         
         recognitionTask = speechRecognizer!.recognitionTask(with: recognitionRequest, resultHandler: { (result, error) in
