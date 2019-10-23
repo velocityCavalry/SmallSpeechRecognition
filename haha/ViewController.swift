@@ -70,7 +70,7 @@ class ViewController: UIViewController , SFSpeechRecognizerDelegate{
         do {
             try audioSession.setCategory(AVAudioSession.Category.record)
             try audioSession.setMode(AVAudioSession.Mode.measurement)
-            try audioSession.setActive(true, withFlags:.notifyOthersOnDeactivation)
+            try audioSession.setActive(true, options:.notifyOthersOnDeactivation)
         } catch {
             print("audioSession properties weren't set because of an error.")
         }
