@@ -24,6 +24,9 @@
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a10-2j-FRo">
                                 <rect key="frame" x="142" y="540" width="131" height="30"/>
                                 <state key="normal" title="Click here to speak"/>
+                                <connections>
+                                    <action selector="microphoneTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ggN-2R-eGf"/>
+                                </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" text="This is a text view" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="amv-He-6Gl">
                                 <rect key="frame" x="87" y="314" width="240" height="143"/>
