@@ -6,6 +6,8 @@
 //  Copyright © 2019 velocity. All rights reserved.
 //
 
+// new bug: Terminating app due to uncaught exception 'com.apple.coreaudio.avfaudio', reason: 'required condition is false: format.sampleRate == hwFormat.sampleRate'
+
 import UIKit
 
 @UIApplicationMain
