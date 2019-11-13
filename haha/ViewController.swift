@@ -85,19 +85,23 @@ class ViewController: UIViewController , SFSpeechRecognizerDelegate{
 //        }
         let inputNode = audioEngine.inputNode //skeptical about how to fix this
         
-        recognitionRequest = SFSpeechAudioBufferRecognitionRequest()
         guard let recognitionRequest = recognitionRequest else {
             fatalError("Unable to create an SFSpeechAudioBufferRecognitionRequest object")
         }
         recognitionRequest.shouldReportPartialResults = true
         
+        // save the previous result
+        let previousOutput = self.textView.text == "This is a text view" ? "" : self.textView.text
+        
         recognitionTask = speechRecognizer!.recognitionTask(with: recognitionRequest, resultHandler: { (result, error) in
             
             var isFinal = false
-            
-            if result != nil {
+            /* note
+                problem 1: the original method outputs the sentence to the console multiple times (temp-fix, hasSuffix)
                 
-                self.textView.text = result?.bestTranscription.formattedString
+             */
+            if result != nil {
+                self.textView.text = previousOutput! + " " + (result?.bestTranscription.formattedString)!
                 isFinal = (result?.isFinal)!
             }
             
@@ -125,7 +129,10 @@ class ViewController: UIViewController , SFSpeechRecognizerDelegate{
             print("audioEngine couldn't start because of an error.")
         }
         
-        textView.text = "Say something, I'm listening!"
+        if textView.text == "This is a text view" {
+            textView.text = "Say something, I'm listening!"
+        }
+        
         
     }
     
@@ -137,17 +144,24 @@ class ViewController: UIViewController , SFSpeechRecognizerDelegate{
         }
     }
     
-    @IBAction func microphoneTapped(_ sender: AnyObject) {
-        if audioEngine.isRunning {
-            audioEngine.stop()
-            recognitionRequest?.endAudio()
-            microphoneButton.isEnabled = false
-            microphoneButton.setTitle("Start Recording", for: .normal)
-        } else {
-            startRecording()
-            microphoneButton.setTitle("Stop Recording", for: .normal)
-        }
-    }
+    
+    
+     @IBAction func microphoneTapped(_ sender: AnyObject) {
+         if audioEngine.isRunning {
+             audioEngine.stop()
+             recognitionRequest?.endAudio()
+             microphoneButton.isEnabled = false
+             microphoneButton.setTitle("Hold To Start Recording", for: .normal)
+         }
+     }
+     
+
+     @IBAction func buttonDown(_ sender: Any) {
+         startRecording()
+         microphoneButton.isEnabled = false
+         microphoneButton.setTitle("Release To Stop Recording", for: .normal)
+     }
+     
 
 }
 
